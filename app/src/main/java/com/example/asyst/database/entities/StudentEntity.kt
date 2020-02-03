@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.asyst.models.enums.EGender
 import com.example.asyst.models.enums.EStudentStatus
+import java.util.*
 
 @Entity(tableName = "student_table")
 data class StudentEntity(
@@ -20,6 +21,9 @@ data class StudentEntity(
 
   @ColumnInfo(name = "nick_name")
   val nickName: String,
+
+  @ColumnInfo(name = "date_schedule")
+  val dateSchedule: Date,
 
   val gender: EGender,
 

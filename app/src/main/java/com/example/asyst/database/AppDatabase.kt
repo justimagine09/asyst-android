@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.asyst.database.daos.BookDao
 import com.example.asyst.database.daos.ScheduleDao
 import com.example.asyst.database.daos.StudentDao
 import com.example.asyst.database.entities.BookEntity
@@ -22,6 +23,7 @@ import com.example.asyst.database.typeConverter.StudentStatusConverter
 @TypeConverters(DateConverter::class, DateConverter::class, GenderConverter::class,StudentStatusConverter::class, ScheduleStatusConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun studentDao(): StudentDao
+    abstract fun bookDao(): BookDao
     abstract fun scheduleDao(): ScheduleDao
 
     companion object {

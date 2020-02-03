@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +24,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val db = AppDatabase.getInstance(this)
-        val student = StudentEntity(firstName = "john", lastName = "doe", nickName = "doedoe", gender = EGender.MALE, status = EStudentStatus.REGULAR)
+        val cal = Calendar.getInstance();
+        cal.set(2020,1,2,13,30)
+        val date: Date = cal.time
+        val student = StudentEntity(firstName = "john", lastName = "doe", nickName = "doedoe", gender = EGender.MALE, status = EStudentStatus.REGULAR, dateSchedule = date )
 
         CoroutineScope(Dispatchers.IO).launch {
             db.studentDao().insertStudent(student)
