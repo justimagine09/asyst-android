@@ -9,16 +9,16 @@ import com.example.asyst.models.enums.EStudentStatus
 import java.util.*
 
 @Entity(
-    tableName = "schedule_table",
+    tableName = "attendance_table",
     foreignKeys = [
         ForeignKey(entity = StudentEntity::class, parentColumns = ["student_id"], childColumns = ["student_id"]),
-        ForeignKey(entity = BookEntity::class, parentColumns = ["book_id"], childColumns = ["book_id"])
+        ForeignKey(entity = LessonMaterialEntity::class, parentColumns = ["lesson_material_id"], childColumns = ["lesson_material_id"])
     ]
 )
-data class ScheduleEntity (
+data class AttendanceEnity (
     @PrimaryKey
-    @ColumnInfo(name = "schedule_id")
-    val scheduleID: Long,
+    @ColumnInfo(name = "attendance_id")
+    val attendaceID: Long,
 
     @ColumnInfo(name = "date_schedule")
     val dateSchedule: Date,
@@ -30,6 +30,6 @@ data class ScheduleEntity (
     @ColumnInfo(name = "student_id")
     val studentID: Long,
 
-    @ColumnInfo(name = "book_id")
-    val bookID: Long
+    @ColumnInfo(name = "lesson_material_id")
+    val lessonMaterialID: Long? = null
 )

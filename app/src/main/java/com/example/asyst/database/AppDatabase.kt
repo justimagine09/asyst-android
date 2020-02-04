@@ -5,26 +5,24 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.asyst.database.daos.BookDao
-import com.example.asyst.database.daos.ScheduleDao
+import com.example.asyst.database.daos.AttendanceDao
+import com.example.asyst.database.daos.LessonMaterialDao
 import com.example.asyst.database.daos.StudentDao
-import com.example.asyst.database.entities.BookEntity
-import com.example.asyst.database.entities.ScheduleEntity
-import com.example.asyst.database.entities.StudentEntity
+import com.example.asyst.database.entities.*
 import com.example.asyst.database.typeConverter.DateConverter
 import com.example.asyst.database.typeConverter.GenderConverter
 import com.example.asyst.database.typeConverter.ScheduleStatusConverter
 import com.example.asyst.database.typeConverter.StudentStatusConverter
 
 @Database(
-    entities = [StudentEntity::class, BookEntity::class, ScheduleEntity::class],
-    version = 1,
+    entities = [StudentEntity::class, LessonMaterialEntity::class, AttendanceEnity::class, StudentLessonMaterial::class],
+    version = 3,
     exportSchema = false)
 @TypeConverters(DateConverter::class, DateConverter::class, GenderConverter::class,StudentStatusConverter::class, ScheduleStatusConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun studentDao(): StudentDao
-    abstract fun bookDao(): BookDao
-    abstract fun scheduleDao(): ScheduleDao
+    abstract fun lessonMaterialDao(): LessonMaterialDao
+    abstract fun attendanceDao(): AttendanceDao
 
     companion object {
         @Volatile
