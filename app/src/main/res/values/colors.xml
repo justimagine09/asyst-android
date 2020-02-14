@@ -3,7 +3,7 @@
     <color name="colorPrimary">#8E766C</color>
     <color name="colorPrimaryDark">#3d322d</color>
     <color name="colorPrimaryLight">#DCBB9C</color>
-    <color name="colorAccent">#489cd9</color>
+    <color name="colorAccent">@color/colorPrimary</color>
     <color name="headerOverLay">#000000</color>
 
     <color name="white">#FFFFFF</color>

@@ -6,20 +6,20 @@ import com.example.asyst.models.enums.EStudentStatus
 
 class ScheduleStatusConverter {
     @TypeConverter
-    fun fromStudentStatus(value: EScheduleStatus?): String? {
-        return value?.let { it.toString() }
+    fun fromStudentStatus(value: EScheduleStatus): String {
+        return value.toString()
     }
 
     @TypeConverter
-    fun studentStatusString(value: String?): EScheduleStatus? {
-        lateinit var status: EScheduleStatus
+    fun studentStatusString(value: String): EScheduleStatus {
+        var status: EScheduleStatus
 
-        when(value) {
-            EScheduleStatus.PENDING.toString() -> status = EScheduleStatus.PENDING
-            EScheduleStatus.COMPLETED.toString() -> status = EScheduleStatus.COMPLETED
-            EScheduleStatus.CANCELLED.toString() -> status = EScheduleStatus.CANCELLED
-       }
+        if (value == EScheduleStatus.ACTIVE.toString()) {
+            status = EScheduleStatus.ACTIVE
+       } else {
+            status = EScheduleStatus.DELETED
+        }
 
-        return status
+        return status as EScheduleStatus
     }
 }

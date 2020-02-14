@@ -1,14 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.pages.AddStudentFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.pages.AddStudentFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/sideOffset"
+        android:paddingRight="@dimen/sideOffset">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_keyboard_backspace"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Add Student"
+            android:layout_marginRight="36dp"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"
+                android:layout_marginBottom="@dimen/sideOffset"
+                android:clipToPadding="false"
+                android:gravity="bottom">
+                <ImageSwitcher android:id="@+id/images_switcher_gender"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
+                </ImageSwitcher>
 
-</FrameLayout>
+                <ImageView
+                    android:id="@+id/images_switcher_gender_swap_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_swap_horiz"></ImageView>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:hint="First Name"
+
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_student_form.first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:hint="Last Name"
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_student_form.last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:hint="Nick Name"
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_student_form.nick_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:hint="Birth Date"
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_student_form.birth_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Switch
+                android:id="@+id/add_student_form_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sideOffset"
+                android:text="@string/regular"
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_student_form.submit_button"
+                android:layout_width="match_parent"
+                android:text="@string/submit"
+                android:layout_marginLeft="@dimen/sideOffset"
+                android:layout_marginRight="@dimen/sideOffset"
+                style="@style/primaryButton"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

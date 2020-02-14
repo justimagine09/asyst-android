@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "student_lesson_material_table")
 data class StudentLessonMaterial (
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "student_book_id")
-    val studentBookID: Long,
+    @ColumnInfo(name = "student_lesson_material_id")
+    val id: Long? = null,
 
     @ColumnInfo(name = "current_page_from")
     val currentPageFrom: Int? = null,
@@ -23,13 +23,11 @@ data class StudentLessonMaterial (
     @ColumnInfo(name = "next_page_to")
     val NexPageTo: Int? = null,
 
-
-    @ColumnInfo(name = "attendance_id")
-    val attendanceId: Long? = null,
-
     @ForeignKey(entity = StudentEntity::class, parentColumns = ["student_id"], childColumns = ["student_id"])
+    @ColumnInfo(name = "student_id")
     val studentID: Long,
 
     @ForeignKey(entity = LessonMaterialEntity::class, parentColumns = ["lesson_material_id"], childColumns = ["lesson_material_id"])
+    @ColumnInfo(name = "lesson_material_id")
     val lessonMaterialID: Long
 )

@@ -5,21 +5,20 @@ import com.example.asyst.models.enums.EStudentStatus
 
 class StudentStatusConverter {
     @TypeConverter
-    fun fromStudentStatus(value: EStudentStatus?): String? {
-        return value?.let { it.toString() }
+    fun fromStudentStatus(value: EStudentStatus): String {
+        return value.toString()
     }
 
     @TypeConverter
-    fun studentStatusString(value: String?): EStudentStatus? {
-        lateinit var status: EStudentStatus
-
-        when(value) {
-            EStudentStatus.REGULAR.toString() -> status = EStudentStatus.REGULAR
-            EStudentStatus.TRIAL.toString() -> status = EStudentStatus.TRIAL
-            EStudentStatus.ON_HOLD.toString() -> status = EStudentStatus.ON_HOLD
-            EStudentStatus.DELETED.toString() -> status = EStudentStatus.TRIAL
-       }
-
-        return status
+    fun studentStatusString(value: String): EStudentStatus {
+        return if(value === EStudentStatus.REGULAR.toString()) {
+            EStudentStatus.REGULAR
+       } else if(value === EStudentStatus.TRIAL.toString()) {
+            EStudentStatus.TRIAL
+        } else if(value === EStudentStatus.ON_HOLD.toString()) {
+            EStudentStatus.ON_HOLD
+        } else {
+            EStudentStatus.TRIAL
+        }
     }
 }

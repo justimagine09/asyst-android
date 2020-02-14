@@ -2,10 +2,10 @@ package com.example.asyst.database.daos
 
 import androidx.room.Dao
 import androidx.room.Insert
-import com.example.asyst.database.entities.AttendanceEnity
+import com.example.asyst.database.entities.AttendanceEntity
 
 @Dao
 interface AttendanceDao {
     @Insert
-    suspend fun insert(attendanceEnity: AttendanceEnity)
+    suspend fun insert(attendanceEntity: AttendanceEntity)
 }
