@@ -31,26 +31,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val db = AppDatabase.getInstance(this)
-//        val cal = Calendar.getInstance()
-//        val student = StudentEntity(firstName = "flore", lastName = "anne", nickName = "anneanne", gender = EGender.MALE, status = EStudentStatus.REGULAR, timeStamp = Date() )
-//        val lessonMaterial = LessonMaterialEntity(title = "aralin panlipunan ii", link = "https://articles.flatx.com.ph", status = ELessonMaterialStatus.ACTIVE)
-//        val attendance = AttendanceEntity(studentID = 1, status = EAttendanceStatus.ABSENT, lessonMaterialID = 1, dateSchedule = Date())
-//        val studentLessonMaterial = StudentLessonMaterial(studentID = 2, lessonMaterialID = 1, currentPageFrom = 1, currentPageTo = 2)
-
-        CoroutineScope(Dispatchers.IO).launch {
-//            db.studentDao().insertUpdate(student)
-//            db.studentLessonMaterialDao().insert(studentLessonMaterial)
-//            try {
-//                db.lessonMaterialDao().insert(lessonMaterial)
-//            } catch (e: SQLiteException) {
-//               Log.d("ERRRRRRRRROR", e.toString())
-//            }
-//           Log.d("x", db.studentWithScheduleDoa().getStudentWithSchedule().toString())
-        }
-
-        val model: StudentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
         
         initializeNavigation()
     }

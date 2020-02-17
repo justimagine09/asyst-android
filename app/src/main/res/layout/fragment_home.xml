@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.pages.HomeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context=".views.pages.HomeFragment"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="191dp"
+        android:background="@drawable/header"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="@dimen/sideOffset"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:id="@+id/header_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23"
+                android:textSize="@dimen/heading"
+                android:textColor="@color/colorPrimaryLight"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/header_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FRIDAY"
+                android:textSize="@dimen/body"
+                android:textColor="@color/colorPrimaryLight"
+                android:textStyle="bold"
+                android:layout_marginLeft="8dp"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/header_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FEBUARY"
+            android:textSize="@dimen/heading"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WEEKLY SCHEDULES"
+            android:textSize="@dimen/body"
+            android:textColor="@color/colorPrimaryLight"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MON"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TUE"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WED"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THU"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FRI"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAT"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUN"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+</LinearLayout>
