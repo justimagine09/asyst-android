@@ -2,21 +2,22 @@ package com.example.asyst.views.pages
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.asyst.R
-import com.example.asyst.database.linkers.ScheduleWithStudent
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.asyst.adapters.ScheduleWithStudentAndMaterialAdapter
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeFragment : Fragment() {
     lateinit var root: View
+    lateinit var scheduleWithStudentAndMaterialRecyclerView: RecyclerView
+    lateinit var scheduleWithStudentAndMaterialAdapter: ScheduleWithStudentAndMaterialAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +26,24 @@ class HomeFragment : Fragment() {
         root = inflater.inflate(R.layout.fragment_home, container, false)
 
         initializeHeader()
+        initializeScheduleWithStudentAndMaterialAdapter()
 
         return root
+    }
+
+    private fun initializeScheduleWithStudentAndMaterialAdapter() {
+
+        scheduleWithStudentAndMaterialRecyclerView = root.schedule_with_student_and_material_recycler_view.adapter as RecyclerView
+
+        scheduleWithStudentAndMaterialRecyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+        }
+
+        if(scheduleWithStudentAndMaterialAdapter == null) {
+            scheduleWithStudentAndMaterialAdapter = ScheduleWithStudentAndMaterialAdapter()
+            scheduleWithStudentAndMaterialRecyclerView.adapter = scheduleWithStudentAndMaterialAdapter
+        }
+
     }
 
     private fun initializeHeader() {

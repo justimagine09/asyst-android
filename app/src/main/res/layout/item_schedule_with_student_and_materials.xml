@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/sideOffset">
+    <TextView
+        android:id="@+id/item_schedule_student_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="John Doe - Ching wai la"
+        android:layout_toLeftOf="@+id/item_schedule_time"
+        android:textStyle="bold"
+        android:layout_marginRight="@dimen/sideOffset"
+        />
+    <TextView
+        android:id="@+id/item_schedule_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:00 PM"
+        android:layout_alignParentRight="true"
+        />
+    <TextView
+        android:id="@+id/item_schedule_lesson_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aralin Panlipunan II"
+        android:layout_below="@+id/item_schedule_student_name"
+        />
+    <TextView
+        android:id="@+id/item_schedule_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="June 14, 2019"
+        android:layout_below="@+id/item_schedule_lesson_title"
+        />
+    <TextView
+        android:id="@+id/item_schedule_student_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REGULAR"
+        android:layout_below="@+id/item_schedule_lesson_title"
+        android:layout_toRightOf="@id/item_schedule_date"
+        android:layout_toLeftOf="@id/item_schedule_status"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textAlignment="textEnd"
+        />
+    <TextView
+        android:id="@+id/item_schedule_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PENDING"
+        android:layout_below="@+id/item_schedule_lesson_title"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/scheduleStatusPending"
+        />
+</RelativeLayout>
