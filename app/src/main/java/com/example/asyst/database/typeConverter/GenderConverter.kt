@@ -11,7 +11,7 @@ class GenderConverter {
 
     @TypeConverter
     fun genderString(value: String?): EGender? {
-        return if(value === EGender.MALE.toString()) {
+        return if(value == EGender.MALE.toString()) {
             EGender.MALE
         } else {
             EGender.FEMALE

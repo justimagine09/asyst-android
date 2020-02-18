@@ -57,8 +57,8 @@ class AddStudentFragment : Fragment() {
         GlobalScope.launch {
             val studentEntity = StudentEntity(
                 firstName = root.add_student_form_first_name.text.toString(),
-                lastName = root.add_student_form_first_name.text.toString(),
-                nickName = root.add_student_form_first_name.text.toString(),
+                lastName = root.add_student_form_last_name.text.toString(),
+                nickName = root.add_student_form_nick_name.text.toString(),
                 gender = if(genderImagerSwitcher.currentPosition() == 0) EGender.MALE else EGender.FEMALE,
                 status = if(root.add_student_form_status.isChecked) EStudentStatus.REGULAR else EStudentStatus.TRIAL,
                 timeStamp = Date()

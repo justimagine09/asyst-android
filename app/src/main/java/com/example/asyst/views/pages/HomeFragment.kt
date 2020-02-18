@@ -61,7 +61,7 @@ class HomeFragment : Fragment() {
 
     private fun initializeStudentWithSchedule() {
         scheduleViewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
-        scheduleViewModel.fetchAllActiveScheduleWithActiveStudentAndMaterial()
+        scheduleViewModel.fetchScheduleWithStudentAndMaterial()
 
         observeScheduleWithStudent()
     }
