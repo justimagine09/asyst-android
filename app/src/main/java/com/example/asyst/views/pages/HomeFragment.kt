@@ -2,22 +2,17 @@ package com.example.asyst.views.pages
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asyst.R
 import com.example.asyst.adapters.ScheduleWithStudentAndMaterialAdapter
-import com.example.asyst.database.AppDatabase
-import com.example.asyst.database.linkers.ScheduleWithStudentAndMaterial
 import com.example.asyst.viewModels.ScheduleViewModel
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -66,13 +61,13 @@ class HomeFragment : Fragment() {
 
     private fun initializeStudentWithSchedule() {
         scheduleViewModel = ViewModelProvider(this).get(ScheduleViewModel::class.java)
-        scheduleViewModel.getAllActiveScheduleWithActiveStudentAndMaterial()
+        scheduleViewModel.fetchAllActiveScheduleWithActiveStudentAndMaterial()
 
         observeScheduleWithStudent()
     }
 
     private fun observeScheduleWithStudent() {
-        scheduleViewModel.observeSscheduleWithStudentAndMaterial().observe(this, androidx.lifecycle.Observer {
+        scheduleViewModel.getScheduleWithStudentAndMaterial().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             scheduleWithStudentAndMaterialAdapter!!.submitList(it)
             scheduleWithStudentAndMaterialAdapter!!.notifyDataSetChanged()
         })

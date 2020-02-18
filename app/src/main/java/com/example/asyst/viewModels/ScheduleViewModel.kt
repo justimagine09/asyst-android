@@ -4,6 +4,7 @@ import android.app.Application
 import android.database.sqlite.SQLiteException
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.asyst.database.AppDatabase
@@ -22,7 +23,7 @@ class ScheduleViewModel(application: Application): AndroidViewModel(application)
         scheduleRepository = ScheduleRepository(scheduleDao)
     }
 
-    fun getAllActiveScheduleWithActiveStudentAndMaterial() = viewModelScope.launch {
+    fun fetchScheduleWithStudentAndMaterial() = viewModelScope.launch {
         scheduleWithStudentAndMaterialLoaded.postValue(false)
 
         try {
@@ -33,7 +34,7 @@ class ScheduleViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
-    fun scheduleWithStudentAndMaterialLoaded() = scheduleWithStudentAndMaterialLoaded
+    fun scheduleWithStudentAndMaterialLoaded():LiveData<Boolean> = scheduleWithStudentAndMaterialLoaded
 
-    fun observeSscheduleWithStudentAndMaterial() = scheduleWithStudentAndMaterial
+    fun getScheduleWithStudentAndMaterial(): LiveData<List<ScheduleWithStudentAndMaterial>> = scheduleWithStudentAndMaterial
 }
