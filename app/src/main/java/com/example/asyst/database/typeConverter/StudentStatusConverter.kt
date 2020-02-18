@@ -1,5 +1,6 @@
 package com.example.asyst.database.typeConverter
 
+import android.util.Log
 import androidx.room.TypeConverter
 import com.example.asyst.models.enums.EStudentStatus
 
@@ -11,11 +12,11 @@ class StudentStatusConverter {
 
     @TypeConverter
     fun studentStatusString(value: String): EStudentStatus {
-        return if(value === EStudentStatus.REGULAR.toString()) {
+        return if(value == EStudentStatus.REGULAR.toString()) {
             EStudentStatus.REGULAR
-       } else if(value === EStudentStatus.TRIAL.toString()) {
+       } else if(value == EStudentStatus.TRIAL.toString()) {
             EStudentStatus.TRIAL
-        } else if(value === EStudentStatus.ON_HOLD.toString()) {
+        } else if(value == EStudentStatus.ON_HOLD.toString()) {
             EStudentStatus.ON_HOLD
         } else {
             EStudentStatus.TRIAL

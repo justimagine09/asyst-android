@@ -2,14 +2,13 @@ package com.example.asyst.database.linkers
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.example.asyst.database.entities.LessonMaterialEntity
 import com.example.asyst.database.entities.ScheduleEntity
 import com.example.asyst.database.entities.StudentEntity
 import com.example.asyst.database.entities.StudentLessonMaterial
 
-data class ScheduleWithStudent(
+data class ScheduleWithStudentAndMaterial(
     @Embedded
-    val scheduleEntity: ScheduleEntity? = null,
+    val schedule: ScheduleEntity? = null,
 
     @Relation(parentColumn = "student_id", entityColumn = "student_id")
     val student: StudentEntity,

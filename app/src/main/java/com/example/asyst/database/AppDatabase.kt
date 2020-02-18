@@ -21,7 +21,6 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun attendanceDao(): AttendanceDao
     abstract fun studentLessonMaterialDao(): StudentLessonMaterialDao
     abstract fun scheduleDao(): ScheduleDao
-    abstract fun studentWithScheduleDoa(): StudentWithScheduleDao
 
     companion object {
         @Volatile

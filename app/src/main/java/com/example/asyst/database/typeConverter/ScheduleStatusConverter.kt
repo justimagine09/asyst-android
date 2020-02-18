@@ -1,25 +1,23 @@
 package com.example.asyst.database.typeConverter
 
+import android.util.Log
 import androidx.room.TypeConverter
 import com.example.asyst.models.enums.EScheduleStatus
-import com.example.asyst.models.enums.EStudentStatus
 
 class ScheduleStatusConverter {
     @TypeConverter
-    fun fromStudentStatus(value: EScheduleStatus): String {
+    fun fromScheduleStatus(value: EScheduleStatus): String {
         return value.toString()
     }
 
     @TypeConverter
-    fun studentStatusString(value: String): EScheduleStatus {
-        var status: EScheduleStatus
+    fun scheduleStatusString(value: String): EScheduleStatus {
+        Log.d("DD", "${value} == ${EScheduleStatus.ACTIVE.toString()}")
 
-        if (value == EScheduleStatus.ACTIVE.toString()) {
-            status = EScheduleStatus.ACTIVE
+        return if (value == EScheduleStatus.ACTIVE.toString()) {
+            EScheduleStatus.ACTIVE
        } else {
-            status = EScheduleStatus.DELETED
+            EScheduleStatus.ACTIVE
         }
-
-        return status as EScheduleStatus
     }
 }

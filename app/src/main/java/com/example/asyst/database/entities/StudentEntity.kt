@@ -1,12 +1,11 @@
 package com.example.asyst.database.entities
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.example.asyst.database.typeConverter.StudentStatusConverter
 import com.example.asyst.models.enums.EGender
 import com.example.asyst.models.enums.EStudentStatus
-import com.example.asyst.models.enums.EWeekDays
 import java.util.*
+
 
 @Entity(tableName = "student_table")
 data class StudentEntity(
@@ -25,6 +24,7 @@ data class StudentEntity(
 
   val gender: EGender,
 
+  @TypeConverters(StudentStatusConverter::class)
   val status: EStudentStatus,
 
   val timeStamp: Date
