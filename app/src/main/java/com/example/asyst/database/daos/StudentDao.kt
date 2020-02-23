@@ -13,4 +13,7 @@ interface StudentDao {
 
     @Query("select * from student_table where student_id = :studentID")
     suspend fun getStudentByID(studentID: Long): StudentEntity
+
+    @Query("SELECT * FROM student_table")
+    suspend fun getAll(): List<StudentEntity>
 }
