@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/studentsFragment">
+    app:startDestination="@id/studentProfile">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -20,4 +20,9 @@
         android:name="com.example.asyst.views.pages.StudentsFragment"
         android:label="fragment_students"
         tools:layout="@layout/fragment_students" />
+    <fragment
+        android:id="@+id/studentProfile"
+        android:name="com.example.asyst.StudentProfile"
+        android:label="fragment_student_profile"
+        tools:layout="@layout/fragment_student_profile" />
 </navigation>
